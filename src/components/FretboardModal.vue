@@ -16,6 +16,7 @@ const emits = defineEmits(['closeModal'])
 <!--      <span v-if="selectedKey.pitch && selectedKey.pitch === 'down'">&#9837; </span>-->
 <!--      <span v-else> Moll</span>-->
     </h1>
+    <img :src="selectedKey.accidental" alt="accidental">
     <Chords :selectedKey="selectedKey"/>
   </div>
 </div>
@@ -51,6 +52,6 @@ const emits = defineEmits(['closeModal'])
   }
 
   img {
-    width: 300px;
+    width: 100px;
   }
 </style>
