@@ -3,12 +3,55 @@ import { keys } from '@/services/data'
 import { ref } from 'vue'
 import FretboardModal from '@/components/FretboardModal.vue'
 
+const allNotes: any = {
+  0: 'C',
+  1: ['Cis', 'Des'],
+  2: 'D',
+  3: ['Dis', 'Es'],
+  4: 'E',
+  5: 'F',
+  6: ['Fis', 'Ges'],
+  7: 'G',
+  8: ['Gis', 'As'],
+  9: 'A',
+  10: ['Ais', 'B'],
+  11: 'H'
+};
+
+const starts = [4, 11, 7, 2, 9, 4];
+let cord: string[] = [];
+let strings: string[][] = [];
+
 const showFret = ref(false);
 const selectedKey = ref();
 function showFretboard(key: any) {
+  strings = []
   selectedKey.value = key;
+
+
+  let j = 0;
+  starts.forEach(start => {
+    cord = [];
+    for (let i = 0; i < 12; i++) {
+      +i + +start < 12 ? j = +i + +start : j = -12 + +i + +start;
+      if (typeof allNotes[j.toString()] === 'string') {
+        cord.push(allNotes[j.toString()]);
+      } else {
+        if (selectedKey.value?.flat === 'true') {
+          cord.push(allNotes[j.toString()]['1']);
+        } else {
+          cord.push(allNotes[j.toString()]['0']);
+        }
+      }
+    }
+    strings.push(cord);
+  });
+  console.log(strings);
+
+  console.log(selectedKey.value);
   showFret.value = true;
 }
+
 </script>
 
 <template>
@@ -27,8 +70,10 @@ function showFretboard(key: any) {
         <span v-if="key.id === 7 || key.id === 27">|</span>
       </div>
     </div>
-    <FretboardModal v-if="showFret"
+    <FretboardModal
+      v-if="showFret"
       :selectedKey="selectedKey"
+      :strings="strings"
       @closeModal="showFret = false"/>
   </main>
 </template>

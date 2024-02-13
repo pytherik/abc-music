@@ -1,54 +1,77 @@
 <script setup lang="ts">
-const allNotes: any = {
-  0: 'C',
-  1: ['Cis', 'Des'],
-  2: 'D',
-  3: ['Dis', 'Es'],
-  4: 'E',
-  5: 'F',
-  6: ['Fis', 'Ges'],
-  7: 'G',
-  8: ['Gis', 'As'],
-  9: 'A',
-  10: ['Ais', 'B'],
-  11: 'H',
-}
 
-const starts = [4, 11, 7, 2, 9, 4];
-let cord: string[] = [];
-const strings: string[][] = []
+const { selectedKey, strings } = defineProps(['selectedKey', 'strings']);
 
-let j = 0;
-starts.forEach(start => {
-  cord = [];
-  for(let i = 0; i < 12; i++){
-    +i + +start < 12 ? j = +i + +start: j = -12 + +i + +start;
-    if(typeof allNotes[j.toString()] === 'string'){
-      cord.push(allNotes[j.toString()])
-    } else {
-      cord.push(allNotes[j.toString()]['0'])
-    }
-  }
-  strings.push(cord);
-})
+
+// const allNotes: any = {
+//   0: 'C',
+//   1: ['Cis', 'Des'],
+//   2: 'D',
+//   3: ['Dis', 'Es'],
+//   4: 'E',
+//   5: 'F',
+//   6: ['Fis', 'Ges'],
+//   7: 'G',
+//   8: ['Gis', 'As'],
+//   9: 'A',
+//   10: ['Ais', 'B'],
+//   11: 'H'
+// };
+//
+// const starts = [4, 11, 7, 2, 9, 4];
+// let cord: string[] = [];
+// const strings: string[][] = [];
+//
+//
+// let j = 0;
+// starts.forEach(start => {
+//   cord = [];
+//   for (let i = 0; i < 12; i++) {
+//     +i + +start < 12 ? j = +i + +start : j = -12 + +i + +start;
+//     if (typeof allNotes[j.toString()] === 'string') {
+//       cord.push(allNotes[j.toString()]);
+//     } else {
+//       if (selectedKey.value?.flat === 'true') {
+//         cord.push(allNotes[j.toString()]['1']);
+//       } else {
+//         cord.push(allNotes[j.toString()]['0']);
+//       }
+//     }
+//   }
+//   strings.push(cord);
+// });
+// console.log(strings);
 </script>
 
 <template>
-<div class="board">
-  <div class="string">
-    <div class="fret-index" v-for="idx in 12" :key="idx">{{ idx - 1 !== 0 ? idx -1 : '' }}</div>
-  </div>
-  <div class="string">
-    <div v-for="idx in 12" :key="idx" :class="[idx === 1 ? 'bridge small': 'fret small']">&nbsp;</div>
-  </div>
-  <div class="string" v-for="(string, index) in strings" :key="index">
-    <div v-for="idx in 12"
-         :key="idx"
-         :class="[idx === 1 ? 'bridge': index === 5 ? 'fret small no-border': 'fret']" >
-      {{ string[idx - 1] }}
+  <div class="board">
+    <div class="string top">
+      <div class="fret-index" v-for="idx in 12"
+           :key="idx">
+        {{ idx - 1 !== 0 ? idx - 1 : '' }}
+      </div>
+    </div>
+    <div class="string">
+      <div v-for="idx in 12"
+           :key="idx"
+           :class="[idx === 1 ? 'bridge small': 'fret small']" />
+    </div>
+    <div class="string" v-for="(string, index) in strings" :key="index">
+      <div :class="[index === 5 ? 'bridge small': 'bridge']">
+        <div class="string-name">
+          {{ string[0] }}
+        </div>
+      </div>
+      <div v-for="idx in 11"
+           :key="idx"
+           :class="[index === 5 ? 'fret small no-border': 'fret']">
+        <div class="tone"
+             :class="[selectedKey.notes.includes(string[idx]) ? string[idx]: 'invisible']">
+          {{ string[idx] }}
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <style scoped>
@@ -64,17 +87,32 @@ starts.forEach(start => {
   display: flex;
 }
 
+.top {
+  margin: 1rem;
+}
+
 .bridge {
+  position: relative;
   width: 35px;
   border-right: 5px solid #000;
   text-align: right;
+}
+
+.string-name {
+  position: absolute;
+  top: -10px;
 }
 
 .fret-index {
   width: 41px;
   text-align: center;
 }
+
 .fret {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 20px;
   border-bottom: 1px solid goldenrod;
@@ -89,5 +127,47 @@ starts.forEach(start => {
 
 .no-border {
   border: none;
+}
+
+.tone {
+  position: absolute;
+  top: -10px;
+  width: 1rem;
+  height: 1rem;
+  font-size: .8rem;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.C, .Cis {
+  background-color: #F75396;
+}
+
+.D, .Dis, .Des {
+  background-color: #F7E978;
+}
+
+.E, .Es {
+  background-color: #487BE7;
+}
+
+.F, .Fis {
+  background-color: #CC9648;
+}
+
+.G, .Gis, .Ges {
+  background-color: #E72B55;
+}
+
+.A, .Ais, .As {
+  background-color: #79E77E;
+}
+
+.H, .B {
+  background-color: #aaaaaa;
+}
+
+.invisible {
+  visibility: hidden;
 }
 </style>

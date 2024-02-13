@@ -2,8 +2,8 @@
 import Chords from '@/components/Chords.vue'
 import FullFret from '@/components/FullFret.vue'
 
-const { selectedKey } = defineProps(['selectedKey']);
-console.log(selectedKey.value);
+const { selectedKey, strings } = defineProps(['selectedKey', 'strings']);
+console.log(selectedKey);
 const emits = defineEmits(['closeModal'])
 </script>
 
@@ -19,7 +19,7 @@ const emits = defineEmits(['closeModal'])
     </h1>
     <img :src="selectedKey.accidental" alt="accidental">
     <Chords :selectedKey="selectedKey"/>
-    <FullFret/>
+    <FullFret :selectedKey="selectedKey" :strings="strings"/>
   </div>
 </div>
 </template>
