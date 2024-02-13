@@ -3,27 +3,45 @@ const { selectedKey } = defineProps(['selectedKey'])
 
 const fretSize = max(selectedKey.chords[0]);
 function max(arr: number[]) {
-  return Math.max.apply(null, arr);
+  return Math.max.apply(null, arr) + 1;
 }
 </script>
 
 <template>
+  <div class="container">
+    <div class="index-container">
+      <div class="fret-index" v-for="index in fretSize" :key="index">{{ index }}</div>
+    </div>
   <div class="board">
     <div  class="fret">
       <div v-for="i in selectedKey.chords[0].length" :key="i" class="bridge"/>
     </div>
     <div class="fret" v-for="index in fretSize" :key="index">
       <div v-for="(string, idx) in selectedKey.chords[0]"
-           :key="idx" :class="[idx === 0 ? 'string small': 'string']">
-        <div class="finger" v-if="string === index">{{ string }}</div>
+           :key="idx"
+           :class="[idx === 0 ? 'string small': 'string']">
+        <div class="finger" v-if="string === index">{{ selectedKey.fingers[0][idx] }}</div>
       </div>
       <div class="string small no-border"/>
     </div>
   </div>
+  </div>
 </template>
 
 <style scoped>
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.index-container {
+  position: absolute;
+  top: 10px;
+  display: flex;
+}
 .board {
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +54,10 @@ function max(arr: number[]) {
   justify-content: center;
 }
 
+.fret-index {
+  width: 50px;
+  text-align: right;
+}
 .bridge {
   width: 5px;
   height: 20px;
