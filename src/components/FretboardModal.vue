@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Chords from '@/components/Chords.vue'
+import FullFret from '@/components/FullFret.vue'
 
 const { selectedKey } = defineProps(['selectedKey']);
 console.log(selectedKey.value);
@@ -18,6 +19,7 @@ const emits = defineEmits(['closeModal'])
     </h1>
     <img :src="selectedKey.accidental" alt="accidental">
     <Chords :selectedKey="selectedKey"/>
+    <FullFret/>
   </div>
 </div>
 </template>
@@ -36,9 +38,9 @@ const emits = defineEmits(['closeModal'])
   }
   .inner-modal {
     position: relative;
-    background: #52779A;
-    min-width: 500px;
-    height: 340px;
+    background: #789FA9;
+    min-width: 600px;
+    min-height: 340px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
