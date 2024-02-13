@@ -2,7 +2,7 @@
 import Chords from '@/components/Chords.vue'
 
 const { selectedKey } = defineProps(['selectedKey']);
-console.log(selectedKey.value);
+
 const emits = defineEmits(['closeModal'])
 </script>
 
@@ -29,20 +29,21 @@ const emits = defineEmits(['closeModal'])
     height: 100%;
     top: 0;
     right: 0;
-    background: #00000055;
+    background: #000000aa;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .inner-modal {
     position: relative;
-    background: #e8f0fa;
+    background: #52779A;
     min-width: 500px;
     height: 340px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    border-radius: 5px;
   }
 
   .pi-times {

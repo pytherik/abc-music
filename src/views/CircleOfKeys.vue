@@ -9,7 +9,6 @@ const selectedKey = ref();
 function showFretboard(key: any) {
   selectedKey.value = key;
   showFret.value = true;
-  console.log(selectedKey.value);
 }
 </script>
 
