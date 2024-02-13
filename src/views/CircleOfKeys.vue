@@ -5,7 +5,6 @@ import FretboardModal from '@/components/FretboardModal.vue'
 
 const showFret = ref(false);
 const selectedKey = ref();
-
 function showFretboard(key: any) {
   selectedKey.value = key;
   showFret.value = true;

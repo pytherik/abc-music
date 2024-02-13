@@ -2,7 +2,7 @@
 import Chords from '@/components/Chords.vue'
 
 const { selectedKey } = defineProps(['selectedKey']);
-
+console.log(selectedKey.value);
 const emits = defineEmits(['closeModal'])
 </script>
 
