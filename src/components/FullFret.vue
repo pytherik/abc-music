@@ -1,9 +1,10 @@
 <script setup lang="ts">
 
-const { selectedKey, strings } = defineProps(['selectedKey', 'strings']);
+import { useMusicStore } from '@/stores/music'
+import { storeToRefs } from 'pinia'
 
-
-
+const musicStore = useMusicStore();
+const { selectedKey, strings } = storeToRefs(musicStore);
 </script>
 
 <template>

@@ -1,7 +1,12 @@
 <script setup lang="ts">
-const { selectedKey } = defineProps(['selectedKey'])
+import { useMusicStore } from '@/stores/music'
+import { storeToRefs } from 'pinia'
 
-const fretSize = max(selectedKey.chords[0]);
+const musicStore = useMusicStore();
+const { selectedKey } = storeToRefs(musicStore)
+
+const fretSize = max(selectedKey.value.chords[0]);
+
 function max(arr: number[]) {
   return Math.max.apply(null, arr) + 1;
 }

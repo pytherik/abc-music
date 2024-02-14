@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import Chords from '@/components/Chords.vue'
 import FullFret from '@/components/FullFret.vue'
+import { useMusicStore } from '@/stores/music'
+import { storeToRefs } from 'pinia'
 
-const { selectedKey, strings } = defineProps(['selectedKey', 'strings']);
-console.log(selectedKey);
+const musicStore = useMusicStore();
+const { selectedKey } = storeToRefs(musicStore);
+
 const emits = defineEmits(['closeModal'])
 </script>
 
@@ -13,13 +16,10 @@ const emits = defineEmits(['closeModal'])
     <i class="pi pi-times" @click="emits('closeModal')" />
     <h1>
       {{ selectedKey.longName }}
-<!--      <span v-if="selectedKey.pitch && selectedKey.pitch === 'up'">&#9839; </span>-->
-<!--      <span v-if="selectedKey.pitch && selectedKey.pitch === 'down'">&#9837; </span>-->
-<!--      <span v-else> Moll</span>-->
     </h1>
     <img :src="selectedKey.accidental" alt="accidental">
-    <Chords :selectedKey="selectedKey"/>
-    <FullFret :selectedKey="selectedKey" :strings="strings"/>
+    <FullFret />
+    <Chords />
   </div>
 </div>
 </template>
@@ -45,6 +45,7 @@ const emits = defineEmits(['closeModal'])
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding: 2rem;
     border-radius: 5px;
   }
 

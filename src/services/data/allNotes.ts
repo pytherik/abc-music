@@ -1,14 +1,14 @@
-export const allNotes = {
-    1: 'C',
-    2: ['Cis', 'Des'],
-    3: 'D',
-    4: ['Dis', 'Es'],
-    5: 'E',
-    6: 'F',
-    7: ['Fis', 'Ges'],
-    8: 'G',
-    9: ['Gis', 'As'],
-    10: 'A',
-    11: ['Ais', 'B'],
-    12: 'H',
-  }
+export const allNotes: any = {
+    0: 'C',
+    1: ['Cis', 'Des'],
+    2: 'D',
+    3: ['Dis', 'Es'],
+    4: 'E',
+    5: 'F',
+    6: ['Fis', 'Ges'],
+    7: 'G',
+    8: ['Gis', 'As'],
+    9: 'A',
+    10: ['Ais', 'B'],
+    11: 'H'
+};
