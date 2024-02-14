@@ -21,7 +21,7 @@
   display: flex;
 }
 .fret-section {
-  width: 40px;
+  width: 41px;
   height: 9px;
   border-bottom: 2px solid #000;
 }
