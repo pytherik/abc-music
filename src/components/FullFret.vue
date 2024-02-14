@@ -3,44 +3,7 @@
 const { selectedKey, strings } = defineProps(['selectedKey', 'strings']);
 
 
-// const allNotes: any = {
-//   0: 'C',
-//   1: ['Cis', 'Des'],
-//   2: 'D',
-//   3: ['Dis', 'Es'],
-//   4: 'E',
-//   5: 'F',
-//   6: ['Fis', 'Ges'],
-//   7: 'G',
-//   8: ['Gis', 'As'],
-//   9: 'A',
-//   10: ['Ais', 'B'],
-//   11: 'H'
-// };
-//
-// const starts = [4, 11, 7, 2, 9, 4];
-// let cord: string[] = [];
-// const strings: string[][] = [];
-//
-//
-// let j = 0;
-// starts.forEach(start => {
-//   cord = [];
-//   for (let i = 0; i < 12; i++) {
-//     +i + +start < 12 ? j = +i + +start : j = -12 + +i + +start;
-//     if (typeof allNotes[j.toString()] === 'string') {
-//       cord.push(allNotes[j.toString()]);
-//     } else {
-//       if (selectedKey.value?.flat === 'true') {
-//         cord.push(allNotes[j.toString()]['1']);
-//       } else {
-//         cord.push(allNotes[j.toString()]['0']);
-//       }
-//     }
-//   }
-//   strings.push(cord);
-// });
-// console.log(strings);
+
 </script>
 
 <template>
@@ -132,9 +95,11 @@ const { selectedKey, strings } = defineProps(['selectedKey', 'strings']);
 .tone {
   position: absolute;
   top: -10px;
-  width: 1rem;
-  height: 1rem;
-  font-size: .8rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: .7rem;
+  font-weight: bold;
+  line-height: 18px;
   border-radius: 100%;
   background: #fff;
 }

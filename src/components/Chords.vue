@@ -35,11 +35,13 @@ function max(arr: number[]) {
   flex-direction: column;
   align-items: center;
 }
+
 .index-container {
   position: absolute;
   top: 10px;
   display: flex;
 }
+
 .board {
   margin-top: 2rem;
   display: flex;
@@ -58,6 +60,7 @@ function max(arr: number[]) {
   width: 50px;
   text-align: right;
 }
+
 .bridge {
   width: 5px;
   height: 20px;
