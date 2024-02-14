@@ -3,6 +3,7 @@ import Chords from '@/components/Chords.vue'
 import FullFret from '@/components/FullFret.vue'
 import { useMusicStore } from '@/stores/music'
 import { storeToRefs } from 'pinia'
+import Staff from '@/components/Staff.vue'
 
 const musicStore = useMusicStore();
 const { selectedKey } = storeToRefs(musicStore);
@@ -18,6 +19,7 @@ const emits = defineEmits(['closeModal'])
       {{ selectedKey.longName }}
     </h1>
     <img :src="selectedKey.accidental" alt="accidental">
+    <Staff/>
     <FullFret />
     <Chords />
   </div>

@@ -1,33 +1,36 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { allNotes } from '@/services/data'
 
-const starts = [4, 11, 7, 2, 9, 4];
-let cord: string[] = [];
-const strings = ref<string[][]>([]);
 export const useMusicStore = defineStore('music', () => {
   const selectedKey = ref();
   const showFret = ref(false);
+  const strings = ref<string[][]>([]);
 
-  function showFretboard(key: any) {
-    strings.value = []
-    selectedKey.value = key;
+  function getCord(start: number) {
+    const cord: string[] = [];
     let j = 0;
-    starts.forEach(start => {
-      cord = [];
-      for (let i = 0; i < 12; i++) {
-        +i + +start < 12 ? j = +i + +start : j = -12 + +i + +start;
-        if (typeof allNotes[j.toString()] === 'string') {
-          cord.push(allNotes[j.toString()]);
+    for (let i = 0; i < 12; i++) {
+      +i + +start < 12 ? j = +i + +start : j = -12 + +i + +start;
+      if (typeof allNotes[j.toString()] === 'string') {
+        cord.push(allNotes[j.toString()]);
+      } else {
+        if (selectedKey.value?.flat === 'true') {
+          cord.push(allNotes[j.toString()]['1']);
         } else {
-          if (selectedKey.value?.flat === 'true') {
-            cord.push(allNotes[j.toString()]['1']);
-          } else {
-            cord.push(allNotes[j.toString()]['0']);
-          }
+          cord.push(allNotes[j.toString()]['0']);
         }
       }
-      strings.value.push(cord);
+    }
+    return cord;
+  }
+
+  function showFretboard(key: any) {
+    const starts = [4, 11, 7, 2, 9, 4];
+    strings.value = [];
+    selectedKey.value = key;
+    starts.forEach(start => {
+      strings.value.push(getCord(start));
       showFret.value = true;
     });
   }
@@ -36,5 +39,6 @@ export const useMusicStore = defineStore('music', () => {
     showFret,
     strings,
     showFretboard,
+    getCord,
   }
 })
