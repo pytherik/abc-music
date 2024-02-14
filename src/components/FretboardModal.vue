@@ -15,13 +15,18 @@ const emits = defineEmits(['closeModal'])
 <div class="modal">
   <div class="inner-modal">
     <i class="pi pi-times" @click="emits('closeModal')" />
+    <div class="common">
+      <Chords />
+      <div>
     <h1>
       {{ selectedKey.longName }}
     </h1>
     <img :src="selectedKey.accidental" alt="accidental">
-    <Staff/>
+      </div>
+
+    </div>
     <FullFret />
-    <Chords />
+    <Staff/>
   </div>
 </div>
 </template>
@@ -57,6 +62,12 @@ const emits = defineEmits(['closeModal'])
     right: 10px;
   }
 
+  .common {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
   img {
     width: 100px;
   }
