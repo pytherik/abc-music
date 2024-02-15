@@ -5,7 +5,6 @@ import { storeToRefs } from 'pinia'
 const musicStore = useMusicStore();
 const { selectedKey } = storeToRefs(musicStore)
 const tuning = ['E', 'H', 'G', 'D', 'A', 'E'];
-const fretSize = max(selectedKey.value.chords[0]);
 
 function max(arr: number[]) {
   return Math.max.apply(null, arr) + 1;
@@ -15,7 +14,7 @@ function max(arr: number[]) {
 <template>
   <div class="container">
     <div class="index-container">
-      <div class="fret-index" v-for="index in fretSize" :key="index">{{ index }}</div>
+      <div class="fret-index" v-for="index in max(selectedKey.chords[0])" :key="index">{{ index }}</div>
     </div>
   <div class="board">
     <div  class="fret">
@@ -26,7 +25,7 @@ function max(arr: number[]) {
          </span>
       </div>
     </div>
-    <div class="fret" v-for="index in fretSize" :key="index">
+    <div class="fret" v-for="index in max(selectedKey.chords[0])" :key="index">
       <div v-for="(string, idx) in selectedKey.chords[0]"
            :key="idx"
            :class="[idx === 0 ? 'string small': 'string']">
@@ -80,7 +79,9 @@ function max(arr: number[]) {
   height: 20px;
   border-right: 5px solid #000;
 }
-
+.dead {
+  color: #444;
+}
 .not-dead {
   background: #fff;
   border-radius: 100%;

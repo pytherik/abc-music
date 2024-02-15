@@ -1,6 +1,6 @@
-import { ref } from 'vue'
-import { defineStore } from 'pinia'
-import { allNotes } from '@/services/data'
+import { ref } from 'vue';
+import { defineStore } from 'pinia';
+import { allNotes } from '@/services/data';
 
 export const useMusicStore = defineStore('music', () => {
   const selectedKey = ref();
@@ -31,14 +31,15 @@ export const useMusicStore = defineStore('music', () => {
     selectedKey.value = key;
     starts.forEach(start => {
       strings.value.push(getCord(start));
-      showFret.value = true;
     });
+    showFret.value = true;
   }
+
   return {
     selectedKey,
     showFret,
     strings,
     showFretboard,
-    getCord,
-  }
-})
+    getCord
+  };
+});
