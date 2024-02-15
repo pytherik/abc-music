@@ -30,7 +30,7 @@ const { selectedKey, strings } = storeToRefs(musicStore);
            :key="idx"
            :class="[index === 5 ? 'fret small no-border': 'fret']">
         <div class="tone"
-             :class="[selectedKey.notes.includes(string[idx]) ? string[idx]: 'invisible']">
+             :class="[selectedKey.notes[0].includes(string[idx]) ? string[idx]: 'invisible']">
           {{ string[idx] }}
         </div>
       </div>

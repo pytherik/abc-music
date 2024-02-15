@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 
 const musicStore = useMusicStore();
 const { selectedKey } = storeToRefs(musicStore)
-
+const tuning = ['E', 'H', 'G', 'D', 'A', 'E'];
 const fretSize = max(selectedKey.value.chords[0]);
 
 function max(arr: number[]) {
@@ -19,13 +19,22 @@ function max(arr: number[]) {
     </div>
   <div class="board">
     <div  class="fret">
-      <div v-for="i in selectedKey.chords[0].length" :key="i" class="bridge"/>
+      <div v-for="(string, idx) in tuning"
+           :key="idx" class="bridge">
+         <span class="dead" :class="[selectedKey.notes[0].includes(string) ? `not-dead ${string}` : '']">
+           {{ string }}
+         </span>
+      </div>
     </div>
     <div class="fret" v-for="index in fretSize" :key="index">
       <div v-for="(string, idx) in selectedKey.chords[0]"
            :key="idx"
            :class="[idx === 0 ? 'string small': 'string']">
-        <div class="finger" v-if="string === index">{{ selectedKey.fingers[0][idx] }}</div>
+        <div class="finger"
+             :class="[selectedKey.notes[0][idx]]"
+             v-if="string === index">
+          {{ selectedKey.fingers[0][idx] }}
+        </div>
       </div>
       <div class="string small no-border"/>
     </div>
@@ -67,11 +76,16 @@ function max(arr: number[]) {
 }
 
 .bridge {
-  width: 5px;
+  width: 25px;
   height: 20px;
-  background: linear-gradient(#333, #000);
+  border-right: 5px solid #000;
 }
 
+.not-dead {
+  background: #fff;
+  border-radius: 100%;
+  padding: 0 .2rem;
+}
 .string {
   position: relative;
   display:flex;
@@ -105,4 +119,33 @@ function max(arr: number[]) {
 .small {
   height: 10px;
 }
+
+.C, .Cis {
+  background-color: #F75396;
+}
+
+.D, .Dis, .Des {
+  background-color: #F7E978;
+}
+
+.E, .Es {
+  background-color: #487BE7;
+}
+
+.F, .Fis {
+  background-color: #CC9648;
+}
+
+.G, .Gis, .Ges {
+  background-color: #E72B55;
+}
+
+.A, .Ais, .As {
+  background-color: #79E77E;
+}
+
+.H, .B {
+  background-color: #aaaaaa;
+}
+
 </style>
