@@ -12,7 +12,7 @@ const { selectedKey, strings } = storeToRefs(musicStore);
     <div class="string top">
       <div class="fret-index" v-for="idx in 12"
            :key="idx">
-        {{ idx - 1 !== 0 ? idx - 1 : '' }}
+        <span class="fret-nr">{{ idx - 1 !== 0 ? idx - 1 : '' }}</span>
       </div>
     </div>
     <div class="string">
@@ -68,10 +68,15 @@ const { selectedKey, strings } = storeToRefs(musicStore);
 }
 
 .fret-index {
+  position: relative;
   width: 41px;
   text-align: center;
 }
 
+.fret-nr {
+  position: absolute;
+  top: -8px;
+}
 .fret {
   position: relative;
   display: flex;

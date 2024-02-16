@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useMusicStore } from '@/stores/music'
 import { storeToRefs } from 'pinia'
+import RelatedChords from '@/components/RelatedChords.vue'
+import Legend from '@/components/Legend.vue'
 
 const musicStore = useMusicStore();
 const { selectedKey } = storeToRefs(musicStore)
@@ -13,6 +15,10 @@ function max(arr: number[]) {
 
 <template>
   <div class="container">
+    <div class="section legend">
+      <Legend/>
+    </div>
+  <div class="section">
     <div class="index-container">
       <div class="fret-index" v-for="index in max(selectedKey.chords[0])" :key="index">{{ index }}</div>
     </div>
@@ -39,14 +45,30 @@ function max(arr: number[]) {
     </div>
   </div>
   </div>
+    <div class="section relations">
+      <RelatedChords/>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+h4 {
+  margin: .5rem 0;
+}
 .container {
+  display: flex;
+}
+
+.section {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 .5rem;
+}
+
+.legend, .relations {
+  align-items: flex-start;
 }
 
 .index-container {
@@ -70,7 +92,7 @@ function max(arr: number[]) {
 }
 
 .fret-index {
-  width: 50px;
+  width: 40px;
   text-align: right;
 }
 
@@ -79,20 +101,24 @@ function max(arr: number[]) {
   height: 20px;
   border-right: 5px solid #000;
 }
+
 .dead {
-  color: #444;
+  color: #222;
 }
+
 .not-dead {
-  background: #fff;
+  color: #000;
+  font-weight: bold;
   border-radius: 100%;
   padding: 0 .2rem;
 }
+
 .string {
   position: relative;
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  width: 40px;
   height: 20px;
   margin-left: 1px;
   border-bottom: 1px solid goldenrod;
@@ -109,8 +135,8 @@ function max(arr: number[]) {
   font-weight: bold;
   width: 20px;
   height: 20px;
+  border: 1px solid #444;
   border-radius: 100%;
-  background: #a9b
 }
 
 .no-border {

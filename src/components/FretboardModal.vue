@@ -6,11 +6,18 @@ import { storeToRefs } from 'pinia';
 import { keys } from '@/services/data';
 
 const musicStore = useMusicStore();
-const { selectedKey } = storeToRefs(musicStore);
+const { selectedKey, relatedKeys, chordTones } = storeToRefs(musicStore);
+const { getRelatedKeys } = musicStore;
 const emits = defineEmits(['closeModal']);
 
-function changeSelected(id: number) {
+function changeSelectedKey(id: number) {
   selectedKey.value = keys[id];
+  relatedKeys.value = getRelatedKeys(keys[id]);
+  const siblings = document.querySelectorAll('.related-chord');
+  siblings.forEach(sibling => {
+    sibling.classList.remove('active');
+  });
+  siblings[0].classList.add('active');
 }
 </script>
 
@@ -22,37 +29,40 @@ function changeSelected(id: number) {
         <div class="relations-container">
           <div class="relations subdominant">
             <div>
+              <h5>Subdominante</h5>
               <span class="sub rel-link"
-                    @click="changeSelected(selectedKey.sub)">{{ keys[selectedKey.sub].longName }}/
-              </span>
+                    @click="changeSelectedKey(relatedKeys.selected.sub)">
+                {{ relatedKeys.sub.longName }}/</span>
               <span class="parallel rel-link"
-                    @click="changeSelected(keys[selectedKey.sub].parallel)">
-                {{ keys[keys[selectedKey.sub].parallel].longName}}
+                    @click="changeSelectedKey(relatedKeys.sub.parallel)">
+                {{ relatedKeys.subParallel.longName }}
               </span>
             </div>
-            <img :src="keys[selectedKey.sub].accidental" alt="accidental">
+            <img :src="relatedKeys.sub.accidental" alt="accidental">
           </div>
           <div class="relations tonic">
+            <h4>Tonika</h4>
             <div>
-              <span class="long-name">{{ selectedKey.longName }}/</span>
+              <span class="long-name">{{ relatedKeys.selected.longName }}/</span>
               <span class="parallel rel-link"
-                    @click="changeSelected(selectedKey.parallel)">
-                {{ keys[selectedKey.parallel].longName }}
+                    @click="changeSelectedKey(relatedKeys.selected.parallel)">
+                {{ relatedKeys.parallel.longName }}
               </span>
             </div>
-            <img :src="selectedKey.accidental" alt="accidental">
+            <img :src="relatedKeys.selected.accidental" alt="accidental">
           </div>
           <div class="relations dominant">
+            <h5>Dominante</h5>
             <div>
               <span class="dom rel-link"
-                    @click="changeSelected(selectedKey.dom)">
-                {{ keys[selectedKey.dom].longName }}/</span>
+                    @click="changeSelectedKey(relatedKeys.selected.dom)">
+                {{ relatedKeys.dom.longName }}/</span>
               <span class="parallel rel-link"
-                    @click="changeSelected(keys[selectedKey.dom].parallel)">
-                {{ keys[keys[selectedKey.dom].parallel].longName }}
+                    @click="changeSelectedKey(relatedKeys.dom.parallel)">
+                {{ relatedKeys.domParallel.longName }}
               </span>
             </div>
-            <img :src="keys[selectedKey.dom].accidental" alt="accidental">
+            <img :src="relatedKeys.dom.accidental" alt="accidental">
           </div>
         </div>
         <Chords />
@@ -63,6 +73,9 @@ function changeSelected(id: number) {
 </template>
 
 <style scoped>
+h4, h5 {
+  margin: .5rem 0;
+}
 .modal {
   position: absolute;
   width: 100%;
@@ -77,8 +90,8 @@ function changeSelected(id: number) {
 
 .inner-modal {
   position: relative;
-  background: #789FA9;
-  min-width: 600px;
+  background: #92C1CE;
+  min-width: 800px;
   min-height: 340px;
   display: flex;
   flex-direction: column;
@@ -109,10 +122,11 @@ function changeSelected(id: number) {
 }
 
 .rel-link:hover {
-  color: #AA6D26;
+  color: #dedeed;
+  font-weight: bold;
 }
 .common {
-  width: 500px;
+  width: 650px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -134,8 +148,9 @@ function changeSelected(id: number) {
 }
 
 .tonic {
-  background: #C49F3E44;
+  background: #C49F3E99;
   border-radius: 5px;
+  padding-bottom: .5rem;
 }
 
 img {
