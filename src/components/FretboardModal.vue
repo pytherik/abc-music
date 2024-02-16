@@ -25,7 +25,7 @@ function changeSelectedKey(id: number) {
   <div class="modal">
     <div class="inner-modal">
       <i class="pi pi-times" @click="emits('closeModal')" />
-      <div class="common">
+<!--      <div class="common">-->
         <div class="relations-container">
           <div class="relations subdominant">
             <div>
@@ -66,7 +66,7 @@ function changeSelectedKey(id: number) {
           </div>
         </div>
         <Chords />
-      </div>
+<!--      </div>-->
       <FullFret />
     </div>
   </div>
@@ -76,6 +76,7 @@ function changeSelectedKey(id: number) {
 h4, h5 {
   margin: .5rem 0;
 }
+
 .modal {
   position: absolute;
   width: 100%;
@@ -91,7 +92,7 @@ h4, h5 {
 .inner-modal {
   position: relative;
   background: #92C1CE;
-  min-width: 800px;
+  min-width: 650px;
   min-height: 340px;
   display: flex;
   flex-direction: column;
@@ -99,6 +100,14 @@ h4, h5 {
   align-items: center;
   padding: 2rem;
   border-radius: 5px;
+}
+
+.common {
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .sub, .dom {
@@ -125,13 +134,6 @@ h4, h5 {
   color: #dedeed;
   font-weight: bold;
 }
-.common {
-  width: 650px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .relations-container {
   margin: 1.5rem 0;
@@ -154,6 +156,6 @@ h4, h5 {
 }
 
 img {
-  width: 100px;
+  width: 60px;
 }
 </style>
