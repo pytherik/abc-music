@@ -152,7 +152,7 @@ export const keys = [
     pitch: 'down',
     pos: [450, 390],
     chords: [[1, 2, 1, 3, 4, 1]],
-      notes: [['F', 'Des', 'Asb', 'F', 'Des', 'F']],
+      notes: [['F', 'Des', 'As', 'F', 'Des', 'F']],
     fingers: [[1, 2, 1, 3, 4, 1]]
   },
   {

@@ -6,7 +6,7 @@ import Legend from '@/components/Legend.vue'
 
 const musicStore = useMusicStore()
 const { selectedKey } = storeToRefs(musicStore)
-const tuning = ['E', 'H', 'G', 'D', 'A', 'E']
+const tuning = ['E', 'B', 'G', 'D', 'A', 'E']
 
 function max(arr: number[]) {
   return Math.max.apply(null, arr) + 1
