@@ -10,5 +10,5 @@ export const sharpScale: any = {
   8: 'Gis',
   9: 'A',
   10: 'Ais',
-  11: 'H'
+  11: 'B'
 };

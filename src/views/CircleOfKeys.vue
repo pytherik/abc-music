@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { keys } from '@/services/data'
-import FretboardModal from '@/components/FretboardModal.vue'
+import FretboardModal from '@/components/InfoModal.vue'
 import { useMusicStore } from '@/stores/music'
 import { storeToRefs } from 'pinia'
 

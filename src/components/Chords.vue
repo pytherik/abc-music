@@ -4,49 +4,55 @@ import { storeToRefs } from 'pinia'
 import RelatedChords from '@/components/RelatedChords.vue'
 import Legend from '@/components/Legend.vue'
 
-const musicStore = useMusicStore();
+const musicStore = useMusicStore()
 const { selectedKey } = storeToRefs(musicStore)
-const tuning = ['E', 'H', 'G', 'D', 'A', 'E'];
+const tuning = ['E', 'H', 'G', 'D', 'A', 'E']
 
 function max(arr: number[]) {
-  return Math.max.apply(null, arr) + 1;
+  return Math.max.apply(null, arr) + 1
 }
 </script>
 
 <template>
   <div class="container">
-    <div class="section legend">
-      <Legend/>
+    <div class="section">
+      <Legend />
     </div>
-  <div class="section">
-    <div class="index-container">
-      <div class="fret-index" v-for="index in max(selectedKey.chords[0])" :key="index">{{ index }}</div>
-    </div>
-  <div class="board">
-    <div  class="fret">
-      <div v-for="(string, idx) in tuning"
-           :key="idx" class="bridge">
-         <span class="dead" :class="[selectedKey.notes[0].includes(string) ? `not-dead ${string}` : '']">
-           {{ string }}
-         </span>
-      </div>
-    </div>
-    <div class="fret" v-for="index in max(selectedKey.chords[0])" :key="index">
-      <div v-for="(string, idx) in selectedKey.chords[0]"
-           :key="idx"
-           :class="[idx === 0 ? 'string small': 'string']">
-        <div class="finger"
-             :class="[selectedKey.notes[0][idx]]"
-             v-if="string === index">
-          {{ selectedKey.fingers[0][idx] }}
+    <div class="section center">
+<!--info   durchnumerieren der Bundstäbchen  -->
+      <div class="index-container">
+        <div class="fret-index" v-for="index in max(selectedKey.chords[0])"
+             :key="index">
+          {{ index }}
         </div>
       </div>
-      <div class="string small no-border"/>
+      <div class="board">
+<!--info       Leersaiten und Bridge außerhalb   -->
+        <div class="fret">
+          <div v-for="(string, idx) in tuning"
+               :key="idx" class="bridge">
+            <span :class="[selectedKey.notes[0].includes(string) ? `not-dead ${string}` : 'dead']">
+              {{ string }}
+            </span>
+          </div>
+        </div>
+<!--info     Aufbau des Griffs Bundweise  -->
+        <div class="fret" v-for="index in max(selectedKey.chords[0])" :key="index">
+          <div v-for="(string, idx) in selectedKey.chords[0]"
+               :key="idx"
+               :class="[idx === 0 ? 'string small': 'string']">
+            <div class="finger"
+                 :class="[selectedKey.notes[0][idx]]"
+                 v-if="string === index">
+              {{ selectedKey.fingers[0][idx] }}
+            </div>
+          </div>
+          <div class="string small no-border" />
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-    <div class="section relations">
-      <RelatedChords/>
+    <div class="section">
+      <RelatedChords />
     </div>
   </div>
 </template>
@@ -55,6 +61,7 @@ function max(arr: number[]) {
 h4 {
   margin: .5rem 0;
 }
+
 .container {
   display: flex;
 }
@@ -67,8 +74,8 @@ h4 {
   margin: 0 .5rem;
 }
 
-.legend, .relations {
-  align-items: flex-start;
+.center {
+  margin: 0 2rem;
 }
 
 .index-container {
@@ -109,13 +116,15 @@ h4 {
 .not-dead {
   color: #000;
   font-weight: bold;
+  width: 40px;
+  height: 20px;
   border-radius: 100%;
   padding: 0 .2rem;
 }
 
 .string {
   position: relative;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
@@ -146,33 +155,4 @@ h4 {
 .small {
   height: 10px;
 }
-
-.C, .Cis {
-  background-color: #F75396;
-}
-
-.D, .Dis, .Des {
-  background-color: #F7E978;
-}
-
-.E, .Es {
-  background-color: #487BE7;
-}
-
-.F, .Fis {
-  background-color: #CC9648;
-}
-
-.G, .Gis, .Ges {
-  background-color: #E72B55;
-}
-
-.A, .Ais, .As {
-  background-color: #79E77E;
-}
-
-.H, .B {
-  background-color: #aaaaaa;
-}
-
 </style>

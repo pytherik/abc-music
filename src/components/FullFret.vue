@@ -3,26 +3,29 @@
 import { useMusicStore } from '@/stores/music'
 import { storeToRefs } from 'pinia'
 
-const musicStore = useMusicStore();
-const { selectedKey, strings } = storeToRefs(musicStore);
+const musicStore = useMusicStore()
+const { selectedKey, strings } = storeToRefs(musicStore)
 </script>
 
 <template>
   <div class="board">
-    <div class="string top">
+    <!--info   durchnumerieren der Bundstäbchen  -->
+    <div class="index-row">
       <div class="fret-index" v-for="idx in 12"
            :key="idx">
         <span class="fret-nr">{{ idx - 1 !== 0 ? idx - 1 : '' }}</span>
       </div>
     </div>
     <div class="string">
+      <!--info    Erste Saite mit Bridge small-->
       <div v-for="idx in 12"
            :key="idx"
            :class="[idx === 1 ? 'bridge small': 'fret small']" />
     </div>
     <div class="string" v-for="(string, index) in strings" :key="index">
       <div :class="[index === 5 ? 'bridge small': 'bridge']">
-        <div class="string-name">
+        <div class="string-name"
+             :class="[selectedKey.notes[0].includes(string[0]) ? string[0]: '']">
           {{ string[0] }}
         </div>
       </div>
@@ -51,7 +54,8 @@ const { selectedKey, strings } = storeToRefs(musicStore);
   display: flex;
 }
 
-.top {
+.index-row {
+  display: flex;
   margin: 1rem;
 }
 
@@ -64,6 +68,10 @@ const { selectedKey, strings } = storeToRefs(musicStore);
 
 .string-name {
   position: absolute;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
   top: -10px;
 }
 
@@ -77,6 +85,7 @@ const { selectedKey, strings } = storeToRefs(musicStore);
   position: absolute;
   top: -8px;
 }
+
 .fret {
   position: relative;
   display: flex;
@@ -94,10 +103,6 @@ const { selectedKey, strings } = storeToRefs(musicStore);
   height: 10px;
 }
 
-.no-border {
-  border: none;
-}
-
 .tone {
   position: absolute;
   top: -10px;
@@ -108,6 +113,14 @@ const { selectedKey, strings } = storeToRefs(musicStore);
   line-height: 18px;
   border-radius: 100%;
   background: #fff;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.no-border {
+  border: none;
 }
 
 .C, .Cis {
@@ -136,9 +149,5 @@ const { selectedKey, strings } = storeToRefs(musicStore);
 
 .H, .B {
   background-color: #aaaaaa;
-}
-
-.invisible {
-  visibility: hidden;
 }
 </style>

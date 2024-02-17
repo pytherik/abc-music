@@ -30,7 +30,7 @@ export const keys = [
     name: 'G',
     pos: [5, 85],
     chords: [[3, 0, 0, 0, 2, 3]],
-      notes: [['G', 'H', 'G', 'D', 'H', 'G']],
+      notes: [['G', 'B', 'G', 'D', 'B', 'G']],
     fingers: [[4, 0, 0, 0, 2, 3]]
   },
   {
@@ -81,7 +81,7 @@ export const keys = [
     name: 'E',
     pos: [355, -3],
     chords: [[0, 0, 1, 2, 2, 0]],
-      notes: [['E', 'H', 'Gis', 'E', 'H', 'E']],
+      notes: [['E', 'B', 'Gis', 'E', 'B', 'E']],
     fingers: [[0, 0, 1, 3, 2, 0]]
   },
   {
@@ -89,16 +89,16 @@ export const keys = [
     root: 11,
     flat: 'false',
     mode: 'major',
-    longName: 'H-Dur',
+    longName: 'B-Dur',
     parallelName: 'gis-moll',
     parallel: 18,
     sub: 4,
     dom: 6,
     accidental: '/images/sharps/a-sharp.svg',
-    name: 'H',
+    name: 'B',
     pos: [450, 70],
     chords: [[2, 4, 4, 4, 2, 2]],
-      notes: [['Fis', 'Dis', 'H', 'Fis', 'H', 'Fis']],
+      notes: [['Fis', 'Dis', 'B', 'Fis', 'B', 'Fis']],
     fingers: [[1, 4, 3, 2, 1, 1]]
   },
   {
@@ -120,7 +120,7 @@ export const keys = [
     fingers: [[1, 1, 2, 4, 3, 1]]
   },
   {
-    id: 8,
+    id: 7,
     root: 6,
     flat: 'true',
     mode: 'major',
@@ -134,7 +134,7 @@ export const keys = [
     pitch: 'down',
     pos: [500, 240],
     chords: [[2, 2, 3, 4, 4, 2]],
-      notes: [['Ges', 'Des', 'B', 'Ges', 'Des', 'Ges']],
+      notes: [['Ges', 'Des', 'Bb', 'Ges', 'Des', 'Ges']],
     fingers: [[1, 1, 2, 4, 3, 1]]
   },
   {
@@ -152,7 +152,7 @@ export const keys = [
     pitch: 'down',
     pos: [450, 390],
     chords: [[1, 2, 1, 3, 4, 1]],
-      notes: [['F', 'Des', 'As', 'F', 'Des', 'F']],
+      notes: [['F', 'Des', 'Asb', 'F', 'Des', 'F']],
     fingers: [[1, 2, 1, 3, 4, 1]]
   },
   {
@@ -188,7 +188,7 @@ export const keys = [
     pitch: 'down',
     pos: [225, 510],
     chords: [[3, 4, 3, 5, 6, 3]],
-      notes: [['G', 'Es', 'B', 'G', 'Es', 'G']],
+      notes: [['G', 'Es', 'Bb', 'G', 'Es', 'G']],
     fingers: [[1, 2, 1, 3, 4, 1]]
   },
   {
@@ -203,9 +203,10 @@ export const keys = [
     dom: 12,
     accidental: '/images/flats/e-flat.svg',
     name: 'B',
+    pitch: 'down',
     pos: [95, 475],
     chords: [[1, 3, 3, 3, 1, 1]],
-      notes: [['F', 'D', 'B', 'F', 'B', 'F']],
+      notes: [['F', 'D', 'Bb', 'F', 'Bb', 'F']],
     fingers: [[1, 4, 3, 2, 1, 1]]
   },
   {
@@ -256,7 +257,7 @@ export const keys = [
     name: 'e',
     pos: [30, 118],
     chords: [[0, 0, 0, 2, 2, 0]],
-      notes: [['E', 'H', 'G', 'E', 'H', 'E']],
+      notes: [['E', 'B', 'G', 'E', 'B', 'E']],
     fingers: [[0, 0, 0, 3, 2, 0]]
   },
   {
@@ -273,7 +274,7 @@ export const keys = [
     name: 'h',
     pos: [115, 33],
     chords: [[2, 3, 4, 4, 2, 2]],
-      notes: [['Fis', 'D', 'H', 'Fis', 'H', 'Fis']],
+      notes: [['Fis', 'D', 'B', 'Fis', 'B', 'Fis']],
     fingers: [[1, 2, 4, 3, 1, 1]]
   },
   {
@@ -363,7 +364,7 @@ export const keys = [
     pitch: 'down',
     pos: [455, 240],
     chords: [[2, 4, 3, 1, 1, 0]],
-      notes: [['Ges', 'Es', 'B', 'Es', 'B', '']],
+      notes: [['Ges', 'Es', 'Bb', 'Es', 'Bb', '']],
     fingers: [[2, 4, 3, 1, 1, 1]]
   },
   {
@@ -380,7 +381,7 @@ export const keys = [
     name: 'b',
     pos: [425, 355],
     chords: [[1, 2, 3, 3, 1, 1]],
-      notes: [['F', 'Des', 'B', 'F', 'B', 'F']],
+      notes: [['F', 'Des', 'Bb', 'F', 'Bb', 'F']],
     fingers: [[1, 2, 4, 3, 1, 1]]
   },
   {
@@ -423,7 +424,7 @@ export const keys = [
     flat: 'true',
     mode: 'minor',
     longName: 'g-moll',
-    parallelName: 'B-Dur',
+    parallelName: 'Bb-Dur',
     parallel: 11,
     sub: 23,
     dom: 25,
@@ -431,7 +432,7 @@ export const keys = [
     name: 'g',
     pos: [115, 440],
     chords: [[3, 3, 3, 5, 5, 3]],
-      notes: [['G', 'D', 'B', 'G', 'D', 'G']],
+      notes: [['G', 'D', 'Bb', 'G', 'D', 'G']],
     fingers: [[1, 1, 1, 4, 3, 1]]
   },
   {
