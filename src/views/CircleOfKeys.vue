@@ -11,9 +11,11 @@ const { showFret } = storeToRefs(musicStore);
 </script>
 
 <template>
-  <main class="main">
-    <h1>Der Quintenzirkel</h1>
-    <div class="circle-big">
+  <main class="bg-picture">
+    <div class="circle-container" v-if="!showFret">
+    <h2>Der Quintenzirkel</h2>
+    <div class="circle-big gradient">
+      <img class="clef" src="/images/icons/clef.png" alt="clef">
       <div class="keys"
            v-for="key in keys"
            :key="key.id"
@@ -23,8 +25,9 @@ const { showFret } = storeToRefs(musicStore);
         {{ key.name }}
         <span v-if="key.pitch && key.pitch === 'up'">&#9839;</span>
         <span v-if="key.pitch && key.pitch === 'down'">&#9837;</span>
-        <span v-if="key.id === 7 || key.id === 27">|</span>
+        <span v-if="key.id === 7 || key.id === 20">|</span>
       </div>
+    </div>
     </div>
     <FretboardModal
       v-if="showFret"
@@ -33,15 +36,30 @@ const { showFret } = storeToRefs(musicStore);
 </template>
 
 <style scoped>
+h2 {
+  margin-top: 2rem;
+}
+
+.circle-container {
+  margin-top: 4rem;
+  width: 700px;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #CCC087dd;
+  border-radius: 110px;
+  box-shadow: 2px 2px 5px #000;
+}
 
 .circle-big {
+  margin-top: 3rem;
   position: relative;
   width: 500px;
   height: 500px;
-  background: #A98E5C11;
   border-radius: 100%;
   box-shadow: 2px 2px 5px #000;
-  margin-top: 4rem;
 }
 
 .keys {
@@ -51,11 +69,25 @@ const { showFret } = storeToRefs(musicStore);
   display: flex;
 }
 
+.keys-minor {
+  color: #dedeed;
+}
+
 .keys-minor:hover {
-  color: lightgreen;
+  color: #ff000088;
+  font-weight: bold;
 }
 
 .keys-major:hover {
-  color: cadetblue;
+  color: #ff000088;
+  font-weight: bold;
+}
+
+.clef {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
 }
 </style>

@@ -75,14 +75,14 @@ ul {
 }
 
 .related-chord:hover {
-  background: #B0AC77;
+  background: #CCC087;
   border-radius: 5px;
   padding-left: 3px;
 }
 
 .active {
   color: #000;
-  background: #CCC087;
+  background: #F7EA53;
   border-radius: 5px;
   padding-left: 3px;
 }

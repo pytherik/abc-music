@@ -41,14 +41,14 @@ img {
 
 .tonic {
   font-size: 1.1rem;
-  background: #C49F3E99;
+  background: #F7EA5388;
   border-radius: 5px;
   padding-bottom: .5rem;
 }
 
 
 .rel-link:hover {
-  background: #bbb;
+  background: #F7EA53;
   border-radius: 5px;
   font-weight: bold;
 }

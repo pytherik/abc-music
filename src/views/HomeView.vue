@@ -2,33 +2,29 @@
 </script>
 
 <template>
-  <main>
+  <main class="bg-picture">
     <div class="home-container">
     <h1>ABC-Guitar-Helper</h1>
       <div class="text">
-      <h3>Dies ist eine Seite für Gitarristen.</h3>
-      <p>Hier kannst du dir, ob du nun blutiger Anfänger bist oder schon
+      <h3>Du spielst Gitarre oder möchtest es lernen?</h3>
+      <p>Dann kannst Du Dir hier, ob Du nun blutiger Anfänger bist oder schon
         im fortgeschrittennen Stadium, die Gitarrenakkorde zu jeder beliebigen
         Tonart anzeigen lassen.</p>
         <p>Die Verwandtschaft zu anderen Tonarten habe ich versucht so intuitiv
           und übersichtlich wie möglich zu gestalten: klicke im Quintenzirkel einfach
         auf die gewünschte Tonart und schau dir an, welche Möglichkeiten sich dir eröffnen!</p>
-      <p>Ich hoffe du schöpfst hier Inspiration und lernst ein wenig die Grundlagen
+      <p>Ich hoffe Du schöpfst hier Inspiration und lernst ein wenig die Grundlagen
         der Musiktheorie.</p>
       </div>
         <RouterLink to="/circle-of-keys">
       <div class="text">
-          Leg' am besten gleich los!
+          <span class="guitar-icon">🎸</span> Leg' am besten gleich los!
       </div>
         </RouterLink>
     </div>
   </main>
 </template>
 <style scoped>
-main {
-  background-image: url('https://picsum.photos/1920/1080?grayscale&blur=3');
-  background-size: cover;
-}
 
 .home-container {
   width: 550px;
@@ -42,7 +38,18 @@ main {
   border-radius: 15px;
 }
 
+a {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .text {
-  width: 400px;
+  width: 380px;
  }
+
+.guitar-icon {
+  font-size: 2rem;
+}
 </style>

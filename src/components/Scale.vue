@@ -92,7 +92,7 @@ const { currentScale, relatedKeys } = storeToRefs(musicStore)
   top:79px;
   left: -5px;
   padding: 0 4px;
-  background: #CCC087;
+  background: #F7EA53;
   border-radius: 5px;
 }
 

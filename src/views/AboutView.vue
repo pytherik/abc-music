@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main class="gradient">
     <div class="container">
       <div class="card">
       <h2>Kontakt</h2>

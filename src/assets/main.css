@@ -4,14 +4,21 @@ body {
     box-sizing: border-box;
     background: #aaa;
 }
-.main {
+.gradient {
     background-image: radial-gradient(#CCC087, #444444);
     background-size: cover;
 }
 
+.bg-picture {
+    background-image: url('https://picsum.photos/1920/1080?grayscale&blur=3');
+    background-size: cover;
+    background-attachment: fixed ;
+}
+
+
 main {
     width: 100vw;
-    height: 95vh;
+    min-height: 95vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;

@@ -6,11 +6,13 @@ import { storeToRefs } from 'pinia'
 import { keys } from '@/services/data'
 import Relation from '@/components/Relation.vue'
 import Scale from '@/components/Scale.vue'
+import { ref } from 'vue'
 
 const musicStore = useMusicStore()
 const { selectedKey, relatedKeys, chordTones } = storeToRefs(musicStore)
 const { getRelatedKeys, showFretboard } = musicStore
 const emits = defineEmits(['closeModal'])
+const hint = ref(true);
 
 function changeSelectedKey(id: number) {
   selectedKey.value = keys[id]
@@ -47,6 +49,10 @@ function changeSelectedKey(id: number) {
             relation="Dominante"
             @changeKey="changeSelectedKey" />
       </div>
+      <div class="digit" v-if="hint">
+        <div class="warning">Achtung! Internationale Notation: B ist H und Bb is B</div>
+        <i class="pi pi-check" title="Hinweis ausblenden" @click="hint=false"/>
+      </div>
       <Chords />
       <FullFret />
       <Scale />
@@ -55,14 +61,20 @@ function changeSelectedKey(id: number) {
 </template>
 
 <style scoped>
+.warning {
+  color: #A9345A;
+}
 
+.digit {
+  display: flex;
+}
 .modal {
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   top: 0;
   right: 0;
-  background: #00000044;
+  background: #00000077;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,16 +90,37 @@ function changeSelectedKey(id: number) {
   justify-content: flex-start;
   align-items: center;
   padding: 2rem;
-  border-radius: 5px;
+  border-radius: 40px;
 }
 
 .pi-times {
+  background: #444;
+  color: #dedeed;
+  padding: .2rem;
+  border-radius: 100%;
   cursor: pointer;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
 }
 
+.pi-times:hover {
+  background-color: #ff0000dd;
+  color: #000;
+}
+
+.pi-check {
+  margin-left: 1rem;
+  border: 1px solid #444;
+  border-radius: 100%;
+  font-weight: bold;
+  color: green;
+}
+
+.pi-check:hover {
+  background-color: #00ff0055;
+  color: #000;
+}
 .relations-container {
   margin: 1.5rem 0;
   width: 100%;
