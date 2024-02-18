@@ -4,10 +4,14 @@ body {
     box-sizing: border-box;
     background: #aaa;
 }
+.main {
+    background-image: radial-gradient(#CCC087, #444444);
+    background-size: cover;
+}
 
 main {
     width: 100vw;
-    height: 93.5vh;
+    height: 95vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;

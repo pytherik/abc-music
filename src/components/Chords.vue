@@ -14,7 +14,7 @@ function max(arr: number[]) {
 </script>
 
 <template>
-  <div class="container">
+  <div class="chords-container">
     <div class="section">
       <Legend />
     </div>
@@ -62,7 +62,7 @@ h4 {
   margin: .5rem 0;
 }
 
-.container {
+.chords-container {
   display: flex;
 }
 

@@ -27,7 +27,7 @@ function changeSelectedKey(id: number) {
 <template>
   <div class="modal">
     <div class="inner-modal">
-      {{ chordTones }}
+<!--      {{ chordTones }}-->
       <i class="pi pi-times" @click="emits('closeModal')" />
       <div class="relations-container">
           <Relation
@@ -62,7 +62,7 @@ function changeSelectedKey(id: number) {
   height: 100%;
   top: 0;
   right: 0;
-  background: #000000aa;
+  background: #00000044;
   display: flex;
   justify-content: center;
   align-items: center;

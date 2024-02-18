@@ -11,7 +11,7 @@ const { showFret } = storeToRefs(musicStore);
 </script>
 
 <template>
-  <main>
+  <main class="main">
     <h1>Der Quintenzirkel</h1>
     <div class="circle-big">
       <div class="keys"
@@ -38,7 +38,7 @@ const { showFret } = storeToRefs(musicStore);
   position: relative;
   width: 500px;
   height: 500px;
-  background: #A98E5C;
+  background: #A98E5C11;
   border-radius: 100%;
   box-shadow: 2px 2px 5px #000;
   margin-top: 4rem;

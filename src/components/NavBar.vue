@@ -45,7 +45,8 @@ a {
 <style scoped>
 .router-link-active,
 .router-link-exact-active {
-  background-color: #2939A9;
+  color: #000;
+  background-color: #CCC087;
   border-radius: 3px;
 }
 </style>
