@@ -8,8 +8,7 @@ export const useMusicStore = defineStore('music', () => {
   const strings = ref<string[][]>([])
   const relatedKeys = ref<any>([])
   const scale = ref()
-  const majorScale = ref();
-  const minorScale = ref();
+  const currentScale = ref();
   const chordTones = ref()
   const flat = ref(false)
 
@@ -47,7 +46,10 @@ export const useMusicStore = defineStore('music', () => {
 
   function getRelatedKeys(key: any) {
     scale.value = getCord(key.root)
-    majorScale.value = scale.value.filter((tone: string, idx: number) => idx.toString().match(/^0+|2|4|5|7|9|^11/))
+    const pattern = key.mode === 'major' ?  /^0+|2|4|5|7|9|^11/ : /^0+|2|3|5|7|8|^10/
+    currentScale.value = scale.value.filter((tone: string, idx: number) => {
+      return idx.toString().match(pattern)
+    })
     if (key.mode === 'minor') {
       chordTones.value = [scale.value[0], scale.value[3], scale.value[7]]
     } else {
@@ -71,8 +73,7 @@ export const useMusicStore = defineStore('music', () => {
     strings,
     scale,
     chordTones,
-    majorScale,
-    minorScale,
+    currentScale,
     changeChord,
     showFretboard,
     getRelatedKeys
