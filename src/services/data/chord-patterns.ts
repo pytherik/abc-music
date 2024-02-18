@@ -1,0 +1,17 @@
+export const chordPatterns = {
+  cMajor0: [0, 1, 0, 2, 3, 0],
+  cMajorX: [1, 2, 1, 3, 4, 0],
+  dMajor0: [2, 3, 1, 0, 0, 0],
+  dMajorX: [3, 4, 2, 1, 1, 1],
+  eMajor0: [0, 0, 1, 3, 2, 0],
+  eMajorX: [1, 1, 2, 4, 3, 1],
+  gMajor0: [4, 3, 0, 0, 1, 2],
+  aMajor0: [0, 3, 2, 1, 0, 0],
+  aMajorX: [1, 4, 3, 2, 1, 1],
+  dMinor0: [1, 3, 2, 0, 0, 0],
+  dMinorX: [2, 4, 3, 1, 1, 1],
+  aMinor0: [0, 1, 3, 2, 0, 0],
+  aMinorX: [1, 2, 4, 3, 1, 1],
+  eMinor0: [0, 0, 0, 3, 2, 0],
+  eMinorX: [1, 1, 1, 4, 3, 1],
+}

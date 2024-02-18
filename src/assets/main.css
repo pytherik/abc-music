@@ -13,3 +13,31 @@ main {
     align-items: center;
     flex-direction: column;
 }
+
+.C, .Cis {
+    background-color: #F75396;
+}
+
+.D, .Dis, .Des {
+    background-color: #F7E978;
+}
+
+.E, .Es {
+    background-color: #487BE7;
+}
+
+.F, .Fis {
+    background-color: #CC9648;
+}
+
+.G, .Gis, .Ges {
+    background-color: #E72B55;
+}
+
+.A, .Ais, .As {
+    background-color: #79E77E;
+}
+
+.B, .Bb {
+    background-color: #aaaaaa;
+}
