@@ -9,10 +9,9 @@ import Scale from '@/components/Scale.vue'
 import { ref } from 'vue'
 
 const musicStore = useMusicStore()
-const { selectedKey, relatedKeys, chordTones } = storeToRefs(musicStore)
+const { selectedKey, relatedKeys, chordTones, hint } = storeToRefs(musicStore)
 const { getRelatedKeys, showFretboard } = musicStore
 const emits = defineEmits(['closeModal'])
-const hint = ref(true);
 
 function changeSelectedKey(id: number) {
   selectedKey.value = keys[id]

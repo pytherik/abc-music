@@ -11,6 +11,7 @@ export const useMusicStore = defineStore('music', () => {
   const currentScale = ref();
   const chordTones = ref()
   const flat = ref(false)
+  const hint = ref(true);
 
   function getCord(start: number) {
     const allNotes = flat.value ? flatScale : sharpScale
@@ -74,6 +75,7 @@ export const useMusicStore = defineStore('music', () => {
     scale,
     chordTones,
     currentScale,
+    hint,
     changeChord,
     showFretboard,
     getRelatedKeys
