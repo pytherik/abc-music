@@ -347,7 +347,7 @@ export const keys = [
     pitch: 'up',
     pos: [425, 110],
     chords: [[4, 4, 4, 6, 6, 4]],
-      notes: [['Gis','Dis', 'H','Gis', 'Dis', 'Gis']],
+      notes: [['Gis','Dis', 'B','Gis', 'Dis', 'Gis']],
     fingers: [[1, 1, 1, 4, 3, 1]]
   },
   {
