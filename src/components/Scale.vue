@@ -21,7 +21,7 @@ const { currentScale, relatedKeys } = storeToRefs(musicStore)
     </div>
     </div>
     <div v-for="tone in currentScale" :key="tone" class="scale">
-      <div class="tone" v-for="idx in 22" :key="idx">
+      <div class="tone" v-for="idx in 24" :key="idx">
         <div class="inner"
              :class="[idx % 2 !== 0 ? 'gap': idx <= 6 || idx > 16 ? 'line small': 'line']">
           <div :class="[idx % 2 === 0 ? 'line-tone': 'gap-tone']"
