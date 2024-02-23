@@ -50,6 +50,9 @@ function max(arr: number[]) {
           <div class="string small no-border" />
         </div>
       </div>
+      <span class="actual-relation">
+      {{ selectedKey.longName }}
+      </span>
     </div>
     <div class="section">
       <RelatedChords />
@@ -154,5 +157,14 @@ h4 {
 
 .small {
   height: 10px;
+}
+
+.actual-relation {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: .7rem;
+  background: #C2F794;
+  border-radius: 5px;
+  padding: 0 4rem;
 }
 </style>

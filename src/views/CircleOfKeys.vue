@@ -73,13 +73,9 @@ h2 {
   color: #dedeed;
 }
 
-.keys-minor:hover {
-  color: #ff000088;
-  font-weight: bold;
-}
-
+.keys-minor:hover,
 .keys-major:hover {
-  color: #ff000088;
+  color: #61F773;
   font-weight: bold;
 }
 
