@@ -9,7 +9,7 @@ import Scale from '@/components/Scale.vue'
 import { ref } from 'vue'
 
 const musicStore = useMusicStore()
-const { selectedKey, relatedKeys, chordTones, hint } = storeToRefs(musicStore)
+const { selectedKey, relatedKeys, hint } = storeToRefs(musicStore)
 const { getRelatedKeys, showFretboard } = musicStore
 const emits = defineEmits(['closeModal'])
 
@@ -28,7 +28,6 @@ function changeSelectedKey(id: number) {
 <template>
   <div class="modal">
     <div class="inner-modal">
-<!--      {{ chordTones }}-->
       <i class="pi pi-times" @click="emits('closeModal')" />
       <div class="relations-container">
           <Relation
@@ -49,7 +48,7 @@ function changeSelectedKey(id: number) {
             @changeKey="changeSelectedKey" />
       </div>
       <div class="digit" v-if="hint">
-        <div class="warning">Achtung! Internationale Notation: B ist H und B♭ is B</div>
+        <div class="warning">Achtung! Internationale Notation: H = B und B = B♭</div>
         <i class="pi pi-check" title="Hinweis ausblenden" @click="hint=false"/>
       </div>
       <Chords />

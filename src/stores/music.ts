@@ -23,6 +23,17 @@ export const useMusicStore = defineStore('music', () => {
     }
     return cord
   }
+  // function getCord(start: number) {
+  //   const allNotes = flat.value ? flatScale : sharpScale
+  //   const cord: string[] = []
+  //   let j, k = 0;
+  //   for (let i = 0; i < 15; i++) {
+  //     i > 12 ? k = i - 12: k;
+  //     +k + +start < 12 ? j = +k + +start : j = -12 + +k + +start
+  //     cord.push(allNotes[j])
+  //   }
+  //   return cord
+  // }
 
   function changeChord(key: any) {
     selectedKey.value = key
