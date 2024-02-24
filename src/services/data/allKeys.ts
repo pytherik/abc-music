@@ -402,7 +402,7 @@ export const keys = [
     accidentalScale: '/images/flats-no-line/g-flat.svg',
     name: 'b♭',
     pitch: 'down',
-    pos: [425, 355],
+    pos: [421, 352],
     chords: [[1, 2, 3, 3, 1, 1]],
       notes: [['F', 'Des', 'B♭', 'F', 'B♭', 'F']],
     fingers: [[1, 2, 4, 3, 1, 1]]
@@ -438,7 +438,7 @@ export const keys = [
     accidental: '/images/flats/a-flat.svg',
     accidentalScale: '/images/flats-no-line/a-flat.svg',
     name: 'c',
-    pos: [225, 460],
+    pos: [225, 472],
     chords: [[3, 4, 5, 5, 3, 3]],
       notes: [['G', 'Es', 'C', 'G', 'C', 'G']],
     fingers: [[1, 2, 4, 3, 1, 1]]

@@ -124,7 +124,7 @@ const { selectedKey, strings } = storeToRefs(musicStore)
 }
 
 .C, .Cis {
-  background-color: #F75396;
+  background-color: #E72B55;
 }
 
 .D, .Dis, .Des {
@@ -132,7 +132,7 @@ const { selectedKey, strings } = storeToRefs(musicStore)
 }
 
 .E, .Es {
-  background-color: #487BE7;
+  background-color: #7AB6D8;
 }
 
 .F, .Fis {
@@ -140,7 +140,7 @@ const { selectedKey, strings } = storeToRefs(musicStore)
 }
 
 .G, .Gis, .Ges {
-  background-color: #E72B55;
+  background-color: #F18039;
 }
 
 .A, .Ais, .As {
@@ -148,6 +148,6 @@ const { selectedKey, strings } = storeToRefs(musicStore)
 }
 
 .B, .B♭ {
-  background-color: #aaaaaa;
+  background-color: #ccc;
 }
 </style>
