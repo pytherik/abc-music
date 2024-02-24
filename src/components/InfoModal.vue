@@ -49,7 +49,7 @@ function changeSelectedKey(id: number) {
             @changeKey="changeSelectedKey" />
       </div>
       <div class="digit" v-if="hint">
-        <div class="warning">Achtung! Internationale Notation: B ist H und Bb is B</div>
+        <div class="warning">Achtung! Internationale Notation: B ist H und B♭ is B</div>
         <i class="pi pi-check" title="Hinweis ausblenden" @click="hint=false"/>
       </div>
       <Chords />
