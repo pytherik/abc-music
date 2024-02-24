@@ -23,8 +23,6 @@ const { showFret } = storeToRefs(musicStore);
            :class="[key.mode === 'major' ? 'keys-major': 'keys-minor']"
            @click="showFretboard(key)">
         {{ key.name }}
-        <span v-if="key.pitch && key.pitch === 'up'">&#9839;</span>
-        <span v-if="key.pitch && key.pitch === 'down'">&#9837;</span>
         <span v-if="key.id === 7 || key.id === 20">|</span>
       </div>
     </div>

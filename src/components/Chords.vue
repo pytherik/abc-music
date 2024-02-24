@@ -165,6 +165,6 @@ h4 {
   margin-top: .7rem;
   background: #C2F794;
   border-radius: 5px;
-  padding: 0 4rem;
+  padding: 0 .5rem;
 }
 </style>

@@ -9,6 +9,6 @@ export const flatScale: any = {
   7: 'G',
   8: 'As',
   9: 'A',
-  10: 'Bb',
+  10: 'B♭',
   11: 'B'
 };

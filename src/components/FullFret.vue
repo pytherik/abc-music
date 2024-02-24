@@ -147,7 +147,7 @@ const { selectedKey, strings } = storeToRefs(musicStore)
   background-color: #79E77E;
 }
 
-.H, .B {
+.B, .B♭ {
   background-color: #aaaaaa;
 }
 </style>
