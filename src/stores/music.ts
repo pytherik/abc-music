@@ -16,24 +16,14 @@ export const useMusicStore = defineStore('music', () => {
   function getCord(start: number) {
     const allNotes = flat.value ? flatScale : sharpScale
     const cord: string[] = []
-    let j = 0
-    for (let i = 0; i < 12; i++) {
-      +i + +start < 12 ? j = +i + +start : j = -12 + +i + +start
+    let j, k = 0;
+    for (let i = 0; i < 15; i++) {
+      i > 12 ? k = i - 12: k = i;
+      +k + +start < 12 ? j = +k + +start : j = -12 + +k + +start
       cord.push(allNotes[j])
     }
     return cord
   }
-  // function getCord(start: number) {
-  //   const allNotes = flat.value ? flatScale : sharpScale
-  //   const cord: string[] = []
-  //   let j, k = 0;
-  //   for (let i = 0; i < 15; i++) {
-  //     i > 12 ? k = i - 12: k;
-  //     +k + +start < 12 ? j = +k + +start : j = -12 + +k + +start
-  //     cord.push(allNotes[j])
-  //   }
-  //   return cord
-  // }
 
   function changeChord(key: any) {
     selectedKey.value = key
@@ -59,7 +49,7 @@ export const useMusicStore = defineStore('music', () => {
   function getRelatedKeys(key: any) {
     scale.value = getCord(key.root)
     const pattern = key.mode === 'major' ?  /^0+|2|4|5|7|9|^11/ : /^0+|2|3|5|7|8|^10/
-    currentScale.value = scale.value.filter((tone: string, idx: number) => {
+    currentScale.value = scale.value.slice(0, 12).filter((tone: string, idx: number) => {
       return idx.toString().match(pattern)
     })
     if (key.mode === 'minor') {
