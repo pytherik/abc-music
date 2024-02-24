@@ -11,14 +11,14 @@ const { selectedKey, strings } = storeToRefs(musicStore)
   <div class="board">
     <!--info   durchnumerieren der Bundstäbchen  -->
     <div class="index-row">
-      <div class="fret-index" v-for="idx in 12"
+      <div class="fret-index" v-for="idx in 15"
            :key="idx">
         <span class="fret-nr">{{ idx - 1 !== 0 ? idx - 1 : '' }}</span>
       </div>
     </div>
     <div class="string">
       <!--info    Erste Saite mit Bridge small-->
-      <div v-for="idx in 12"
+      <div v-for="idx in 15"
            :key="idx"
            :class="[idx === 1 ? 'bridge small': 'fret small']" />
     </div>
@@ -29,7 +29,7 @@ const { selectedKey, strings } = storeToRefs(musicStore)
           {{ string[0] }}
         </div>
       </div>
-      <div v-for="idx in 11"
+      <div v-for="idx in 14"
            :key="idx"
            :class="[index === 5 ? 'fret small no-border': 'fret']">
         <div class="tone"
