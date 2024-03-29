@@ -409,7 +409,7 @@ export const keys = [
   },
   {
     id: 22,
-    root: 8,
+    root: 5,
     flat: 'true',
     mode: 'minor',
     longName: 'f-moll',
