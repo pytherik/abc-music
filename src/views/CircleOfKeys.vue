@@ -13,7 +13,7 @@ const { showFret } = storeToRefs(musicStore);
 <template>
   <main class="bg-picture">
     <div class="circle-container" v-if="!showFret">
-    <h2>Der Quintenzirkel</h2>
+    <h2>Quintenzirkel</h2>
     <div class="circle-big gradient">
       <img class="clef" src="/images/icons/clef.png" alt="clef">
       <div class="keys"
